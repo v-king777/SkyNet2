@@ -12,20 +12,18 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite(connectionString));
 
-var mapperConfig = new MapperConfiguration((conf) =>
-    conf.AddProfile(new MappingProfile()));
-
+var mapperConfig = new MapperConfiguration((expression) => expression.AddProfile(new MappingProfile()));
 var mapper = mapperConfig.CreateMapper();
 
 builder.Services.AddSingleton(mapper);
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
-builder.Services.AddIdentity<User, IdentityRole>(setup =>
+builder.Services.AddIdentity<User, IdentityRole>(options =>
     {
-        setup.Password.RequiredLength = 8;
-        setup.Password.RequireNonAlphanumeric = false;
-        setup.Password.RequireLowercase = false;
-        setup.Password.RequireUppercase = false;
-        setup.Password.RequireDigit = false;
+        options.Password.RequiredLength = 8;
+        options.Password.RequireNonAlphanumeric = false;
+        options.Password.RequireLowercase = false;
+        options.Password.RequireUppercase = false;
+        options.Password.RequireDigit = false;
     })
     .AddEntityFrameworkStores<ApplicationDbContext>();
 

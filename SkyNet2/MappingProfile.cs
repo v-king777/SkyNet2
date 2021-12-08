@@ -9,13 +9,13 @@ public class MappingProfile : Profile
     public MappingProfile()
     {
         CreateMap<RegisterViewModel, User>()
-            .ForMember(u => u.BirthDate, opt =>
-                opt.MapFrom(rvm =>
-                    new DateTime((int) rvm.Year, (int) rvm.Month, (int) rvm.Date)))
-            .ForMember(u => u.Email, opt =>
-                opt.MapFrom(rvm => rvm.EmailReg))
-            .ForMember(u => u.UserName, opt =>
-                opt.MapFrom(rvm => rvm.Login));
+            .ForMember(user => user.BirthDate, expression =>
+                expression.MapFrom(model =>
+                    new DateTime((int) model.Year, (int) model.Month, (int) model.Date)))
+            .ForMember(user => user.Email, expression =>
+                expression.MapFrom(model => model.EmailReg))
+            .ForMember(user => user.UserName, expression =>
+                expression.MapFrom(model => model.Login));
         
         CreateMap<LoginViewModel, User>();
     }
