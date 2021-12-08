@@ -12,7 +12,8 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite(connectionString));
 
-var mapperConfig = new MapperConfiguration((conf) => { conf.AddProfile(new MappingProfile()); });
+var mapperConfig = new MapperConfiguration((conf) =>
+    conf.AddProfile(new MappingProfile()));
 
 var mapper = mapperConfig.CreateMapper();
 
