@@ -16,7 +16,6 @@ var mapperConfig = new MapperConfiguration((expression) => expression.AddProfile
 var mapper = mapperConfig.CreateMapper();
 
 builder.Services.AddSingleton(mapper);
-builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddIdentity<User, IdentityRole>(options =>
     {
         options.Password.RequiredLength = 8;
