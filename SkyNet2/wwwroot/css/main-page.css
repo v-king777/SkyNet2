@@ -1,0 +1,30 @@
+.main {
+    -ms-flex: 40%; /* IE10 */
+    flex: 40%;
+    padding: 20px;
+}
+
+.side {
+    -ms-flex: 60%; /* IE10 */
+    flex: 60%;
+    padding: 20px;
+}
+
+.main-img {
+    width: 100%;
+    max-width: max-content;
+}
+
+.background-main {
+    background-color: #edeef0;
+}
+
+.background-white {
+    background-color: white;
+}
+
+.block-reg {
+    margin: 20px;
+    padding: 30px;
+    align-content: center;
+}

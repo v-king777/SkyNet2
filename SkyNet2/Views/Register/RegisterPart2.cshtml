@@ -1,0 +1,52 @@
+@model SkyNet2.ViewModels.Account.RegisterViewModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="mb-3">
+    <h2>Регистрация нового пользователя</h2>
+</div>
+
+<form method="post" asp-controller="Register" asp-action="Register">
+    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+    <div class="mb-3">
+        <input class="form-control" asp-for="FirstName"/>
+        <span class="text-danger" asp-validation-for="FirstName"></span>
+    </div>
+    <div class="mb-3">
+        <input class="form-control" asp-for="LastName"/>
+        <span class="text-danger" asp-validation-for="LastName"></span>
+    </div>
+    <div class="mb-3">
+        <input class="form-control" asp-for="Login"/>
+        <span class="text-danger" asp-validation-for="Login"></span>
+    </div>
+    <div class="mb-3">
+        <input class="form-control" asp-for="EmailReg"/>
+        <span class="text-danger" asp-validation-for="EmailReg"></span>
+    </div>
+    <div class="mb-3">
+        <input class="form-control date_control" asp-for="Date">
+        <span class="text-danger" asp-validation-for="Date"></span>
+    </div>
+    <div class="mb-3">
+        <input class="form-control date_control" asp-for="Month">
+        <span class="text-danger" asp-validation-for="Month"></span>
+    </div>
+    <div class="mb-3">
+        <input class="form-control date_control" asp-for="Year">
+        <span class="text-danger" asp-validation-for="Year"></span>
+    </div>
+    <div class="mb-3">
+        <input class="form-control" asp-for="PasswordReg"/>
+        <span class="text-danger" asp-validation-for="PasswordReg"></span>
+    </div>
+    <div class="mb-3">
+        <input class="form-control" asp-for="PasswordConfirm"/>
+        <span class="text-danger" asp-validation-for="PasswordConfirm"></span>
+    </div>
+    <div class="mb-3">
+        <input class="btn btn-success" type="submit" value="Регистрация"/>
+    </div>
+</form>

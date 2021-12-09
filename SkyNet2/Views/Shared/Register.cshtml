@@ -1,0 +1,58 @@
+@model SkyNet2.ViewModels.Account.RegisterViewModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="block-reg background-white">
+    <div class="text-center mb-3">
+        <h2>Впервые здесь?</h2>
+    </div>
+    <div class="text-center text-muted mb-3">
+        Тогда зарегистрируйтесь!
+    </div>
+
+    <form method="get" asp-controller="Register" asp-action="RegisterPart2">
+        <div class="mb-3">
+            <input class="form-control" asp-for="FirstName"/>
+            <span class="text-danger" asp-validation-for="FirstName"></span>
+        </div>
+        <div class="mb-3">
+            <input class="form-control" asp-for="LastName"/>
+            <span class="text-danger" asp-validation-for="LastName"></span>
+        </div>
+
+        <div class="text-left text-muted mb-1">
+            Введите дату рождения
+        </div>
+
+        <div class="form-inline mb-3">
+            <select class="form-control date_control" asp-for="Date" ID="ddlDay">
+                <option value="">@Model?.Date</option>
+            </select>
+            <span class="text-danger" asp-validation-for="Date"></span>
+
+            <select class="form-control date_control m-auto" asp-for="Month"
+                    asp-items="Html.GetEnumSelectList<SkyNet2.ViewModels.Months>()"
+                    onchange="PopulateDays()" ID="ddlMonth">
+                <option value="">@Model?.Month</option>
+            </select>
+            <span class="text-danger" asp-validation-for="Month"></span>
+
+            <select class="form-control date_control" asp-for="Year" ID="ddlYear"
+                    asp-items="Enumerable.Range(
+                        DateTime.Now.AddYears(-100).Year, 
+                        DateTime.Now.AddYears(-14).Year - 
+                        DateTime.Now.AddYears(-100).Year)
+                    .Reverse().Select(x => new SelectListItem(x.ToString(), x.ToString()))"
+                    onchange="PopulateDays()">
+                <option value="">@Model?.Year</option>
+            </select>
+            <span class="text-danger" asp-validation-for="Year"></span>
+        </div>
+
+        <div class="mb-3">
+            <input class="btn btn-success btn-lg w-100" type="submit" value="Регистрация"/>
+        </div>
+    </form>
+</div>

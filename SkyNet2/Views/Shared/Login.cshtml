@@ -1,0 +1,25 @@
+@model SkyNet2.ViewModels.Account.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="block-reg background-white">
+    <div class="text-center mb-3">
+        <h2>Добро пожаловать!</h2>
+    </div>
+    <form method="post" asp-controller="AccountManager" asp-action="Login">
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+        <div class="mb-3">
+            <input class="form-control" asp-for="Email"/>
+            <span class="text-danger" asp-validation-for="Email"></span>
+        </div>
+        <div class="mb-3">
+            <input class="form-control" asp-for="Password"/>
+            <span class="text-danger" asp-validation-for="Password"></span>
+        </div>
+        <div class="mb-3">
+            <input class="btn btn-primary btn-lg w-100" type="submit" value="Войти"/>
+        </div>
+    </form>
+</div>

@@ -23,7 +23,7 @@ public class AccountManagerController : Controller
     [HttpGet]
     public IActionResult Login()
     {
-        return View("Home/Login");
+        return View("Login");
     }
 
     [HttpGet]
