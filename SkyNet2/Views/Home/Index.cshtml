@@ -11,7 +11,7 @@
 }
 @if (SignInManager.IsSignedIn(User))
 {
-    <div>Привет, @User.Identity?.Name!</div>
+    <div>Привет, @User.Identity.Name!</div>
 }
 else
 {
@@ -23,8 +23,8 @@ else
             <img class="main-img" src="http://pngimg.com/uploads/husky/husky_PNG19.png" alt="No husky"/>
         </div>
         <div class="main">
-            <partial name="Login" model="Model?.LoginView"/>
-            <partial name="Register" model="Model?.RegisterView"/>
+            <partial name="Login" model="Model.LoginView"/>
+            <partial name="Register" model="Model.RegisterView"/>
         </div>
     </div>
 }

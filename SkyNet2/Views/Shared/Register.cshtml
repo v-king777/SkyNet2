@@ -29,7 +29,7 @@
         <div class="row mb-3">
             <div class="col-sm">
                 <select class="form-control date_control" asp-for="Date" ID="ddlDay">
-                    <option value="">@Model?.Date</option>
+                    <option value="">@Model.Date</option>
                 </select>
                 <span class="text-danger" asp-validation-for="Date"></span>
             </div>
@@ -37,15 +37,19 @@
                 <select class="form-control date_control" asp-for="Month"
                         asp-items="Html.GetEnumSelectList<SkyNet2.ViewModels.Months>()"
                         onchange="PopulateDays()" ID="ddlMonth">
-                    <option value="">@Model?.Month</option>
+                    <option value="">@Model.Month</option>
                 </select>
                 <span class="text-danger" asp-validation-for="Month"></span>
             </div>
             <div class="col-sm">
                 <select class="form-control date_control" asp-for="Year" ID="ddlYear"
-                        asp-items="Enumerable.Range(DateTime.Now.AddYears(-100).Year, DateTime.Now.AddYears(-14).Year - DateTime.Now.AddYears(-100).Year).Reverse().Select(x => new SelectListItem(x.ToString(), x.ToString()))"
+                        asp-items="Enumerable.Range(
+                            DateTime.Now.AddYears(-100).Year, 
+                            DateTime.Now.AddYears(-14).Year - 
+                            DateTime.Now.AddYears(-100).Year)
+                        .Reverse().Select(x => new SelectListItem(x.ToString(), x.ToString()))"
                         onchange="PopulateDays()">
-                    <option value="">@Model?.Year</option>
+                    <option value="">@Model.Year</option>
                 </select>
                 <span class="text-danger" asp-validation-for="Year"></span>
             </div>
